@@ -1,43 +1,43 @@
-import React, {useEffect, useState} from 'react'
-import RenterSpinner from './components/renterspinner.js'
-import RentSearch from './components/rentsearch.js'
+import React, { useEffect, useState } from 'react'
+// import RenterSpinner from './components/renterspinner.js'
+//import RentSearch from './components/rentsearch.js'
 import axios from 'axios'
 
-function renterView () {
+function RenterView() {
 
-//set to state the drones that will be displayed through our RenterSpinner
-const[drones, updateDrones] = useState([]);
+    //set to state the drones that will be displayed through our RenterSpinner
+    const [drones, updateDrones] = useState([]);
 
-//Use useEffect and axios below to pull certain drones from our backend
-useEffect(()=> {
-    axios.get('')
-        .then(res=>console.log(res))
-        .catch(err=>console.log(err))
-}, [])
+    //Use useEffect and axios below to pull certain drones from our backend
+    useEffect(() => {
+        axios.get('')
+            .then(res => console.log(res))
+            .catch(err => console.log(err))
+    }, [])
 
 
     return (
         <>
             <div className="renter header">
-                <RentSearch/>
+                {/* <RentSearch /> */}
             </div>
+{/* 
+            <div className="section header">
+                <h2>Pick By Purpose</h2>
+            </div>
+            <RenterSpinner />
 
             <div className="section header">
                 <h2>Pick By Purpose</h2>
             </div>
-            <RenterSpinner/>
+            <RenterSpinner />
 
             <div className="section header">
                 <h2>Pick By Purpose</h2>
             </div>
-            <RenterSpinner/>
-
-            <div className="section header">
-                <h2>Pick By Purpose</h2>
-            </div>
-            <RenterSpinner/>
+            <RenterSpinner /> */}
         </>
     )
 }
 
-export default renterView
+export default RenterView
