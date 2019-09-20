@@ -1,4 +1,5 @@
-import Slide from 'react-slick'
+import React from 'react'
+import Slider from 'react-slick'
 
 export default function RenterCarousel (props) {
 
