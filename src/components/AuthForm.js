@@ -3,6 +3,8 @@ import styled from "styled-components";
 import axios from "utils/Axios";
 
 const Style = styled.form.attrs()`
+  margin: 1rem;
+  min-height: 8rem;
   display: flex;
   flex-direction: column;
   align-items: center;

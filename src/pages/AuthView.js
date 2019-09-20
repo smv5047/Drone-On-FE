@@ -6,6 +6,7 @@ import AuthForm from "components/AuthForm";
 const StyledView = styled.div`
   max-width: 400px;
   margin: 1rem auto;
+  border: 1px black solid;
 `;
 
 const Style = styled.nav`
@@ -22,13 +23,10 @@ const Style = styled.nav`
 const StyledLink = styled(NavLink).attrs({
   activeClassName: "active"
 })`
-  border-bottom: 1px solid black;
   background-color: lightgray;
+
   &.active {
     background-color: white;
-    border-radius: 5px 5px 0 0;
-    border: 1px solid black;
-    border-bottom: 0;
   }
 `;
 
