@@ -17,9 +17,24 @@ export default function AuthForm(props) {
     setUser({ ...user, [event.target.name]: event.target.value });
   };
 
+  const saveToken = token => {
+    localStorage.setItem('token', token);
+  }
+
   const onSubmit = event => {
     event.preventDefault();
-    console.log(user);
+    (!props.signup)? axios.post("https://reqres.in/api/login", user)
+    .then((res) => {
+        saveToken(res.data.token)
+        props.history.push('/');
+    })
+    .catch(err => console.log(err))
+    : axios.post("https://reqres.in/api/register", user)
+    .then(res => {
+        saveToken(res.data.token)
+        props.history.push('/onboarding');
+    })
+    .catch(err => console.log(err))
   };
   return (
     <Style onSubmit={onSubmit}>
