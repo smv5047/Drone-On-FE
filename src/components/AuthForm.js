@@ -23,13 +23,13 @@ export default function AuthForm(props) {
 
   const onSubmit = event => {
     event.preventDefault();
-    (!props.signup)? axios.post("https://reqres.in/api/login", user)
+    (!props.signup)? axios().post("https://reqres.in/api/login", user)
     .then((res) => {
         saveToken(res.data.token)
         props.history.push('/');
     })
     .catch(err => console.log(err))
-    : axios.post("https://reqres.in/api/register", user)
+    : axios().post("https://reqres.in/api/register", user)
     .then(res => {
         saveToken(res.data.token)
         props.history.push('/onboarding');
