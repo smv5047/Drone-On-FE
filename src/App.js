@@ -1,14 +1,19 @@
 import React from "react";
-import "./App.css";
 import { Route } from "react-router-dom";
+import styled from "styled-components";
 import NavBar from "components/NavBar";
 import Home from "pages/Home";
 import AuthView from "pages/AuthView";
 import RenterView from "pages/RenterView";
 
+const Style = styled.div`
+  max-width: 900px;
+  margin: 5rem auto;
+`
+
 function App() {
   return (
-    <div className="App">
+    <Style className="App">
       <NavBar />
       <Route path="/" exact component={Home} />
       <Route path="/signup" render={props => <AuthView {...props} signup />} />
@@ -18,7 +23,7 @@ function App() {
         render={props => <Home {...props} onboarding />}
       />
       <Route path="/find-drone" component={RenterView} />
-    </div>
+    </Style>
   );
 }
 
