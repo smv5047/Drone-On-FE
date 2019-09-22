@@ -10,8 +10,8 @@ function RenterView() {
   //Use useEffect and axios below to pull certain drones from our backend
   useEffect(() => {
     axios
-      .get("")
-      .then(res => console.log(res))
+      .get("https://rickandmortyapi.com/api/character/")
+      .then(res => updateDrones(res.data.results[0]))
       .catch(err => console.log(err));
   }, []);
 
@@ -24,17 +24,17 @@ function RenterView() {
       <div className="section header">
         <h2>Pick By Purpose</h2>
       </div>
-      <RenterCarousel/>
+      <RenterCarousel drones={drones}/>
 
       <div className="section header">
-        <h2>Pick By Purpose</h2>
+        <h2>Pick By Experience Level</h2>
       </div>
-      <RenterCarousel/>
+      <RenterCarousel drones={drones}/>
 
       <div className="section header">
-        <h2>Pick By Purpose</h2>
+        <h2>Pick By Cost</h2>
       </div>
-      <RenterCarousel/>
+      <RenterCarousel drones={drones}/>
     </>
   );
 }

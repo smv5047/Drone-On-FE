@@ -8,6 +8,7 @@ import RenterView from "pages/RenterView";
 function App() {
   return (
     <div className="App">
+      <RenterView/>
       <Route path="/" exact component={Home} />
       <Route path="/signup" render={props => <AuthView {...props} signup />} />
       <Route path="/login" component={AuthView} />
