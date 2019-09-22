@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import RenterSpinner from "components/RenterCarousel";
+import RenterCarousel from "components/RenterCarousel";
 import RentSearch from "components/RentSearch";
 import axios from "axios";
 
@@ -24,17 +24,17 @@ function RenterView() {
       <div className="section header">
         <h2>Pick By Purpose</h2>
       </div>
-      <RenterSpinner />
+      <RenterCarousel/>
 
       <div className="section header">
         <h2>Pick By Purpose</h2>
       </div>
-      <RenterSpinner />
+      <RenterCarousel/>
 
       <div className="section header">
         <h2>Pick By Purpose</h2>
       </div>
-      <RenterSpinner />
+      <RenterCarousel/>
     </>
   );
 }
