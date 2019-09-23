@@ -36,6 +36,7 @@
   margin: 0 auto;
 }
 
+
 .search-header {
   width: 70%;
   background-repeat: no-repeat;
@@ -46,9 +47,12 @@
 }
 
 footer {
-  width: 70%;
-  height: 200px;
+  padding-top: 50px;
   display: flex;
   justify-content: center;
-  align-content: center;
+  
+}
+
+.socialButton {
+  padding: 0 2.5%;
 }
