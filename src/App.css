@@ -44,3 +44,11 @@
   background-image: url("./search_background.jpg");
   background-size: 100%;
 }
+
+footer {
+  width: 70%;
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}

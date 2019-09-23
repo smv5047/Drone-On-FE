@@ -4,6 +4,7 @@ import { Route } from "react-router-dom";
 import Home from "pages/Home";
 import AuthView from "pages/AuthView";
 import RenterView from "pages/RenterView";
+import Footer from "components/Footer"
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         render={props => <Home {...props} onboarding />}
       />
       <Route path="/find-drone" component={RenterView} />
+      <Footer />
     </div>
   );
 }
