@@ -35,3 +35,12 @@
 .carouselCard img{
   margin: 0 auto;
 }
+
+.search-header {
+  width: 70%;
+  background-repeat: no-repeat;
+  height: 400px;
+  margin: 0 auto;
+  background-image: url("./search_background.jpg");
+  background-size: 100%;
+}

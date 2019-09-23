@@ -17,8 +17,10 @@ function RenterView() {
 
   return (
     <>
-      <div className="renter header">
+      <div className="search-header">
+        
         <RentSearch />
+
       </div>
 
       <div className="section header">

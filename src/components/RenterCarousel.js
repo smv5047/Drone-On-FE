@@ -8,7 +8,7 @@ export default function RenterCarousel (props) {
     const settings = {
         dots: true,
         
-        speed: 500,
+        speed: 400,
         slidesToShow: 3,
         slidesToScroll: 3
     };
