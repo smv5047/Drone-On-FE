@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import RenterCarousel from "components/RenterCarousel";
 import RentSearch from "components/RentSearch";
-import axios from "axios";
+import axios from "utils/axios";
 
 function RenterView() {
   //set to state the drones that will be displayed through our RenterSpinner
