@@ -11,14 +11,3 @@
   background-image: url("./search_background.jpg");
   background-size: 100%;
 }
-
-footer {
-  padding-top: 50px;
-  display: flex;
-  justify-content: center;
-  
-}
-
-.socialButton {
-  padding: 0 2.5%;
-}
