@@ -10,7 +10,7 @@ function RenterView() {
   //Use useEffect and axios below to pull certain drones from our backend
   useEffect(() => {
     axios
-      .get("https://rickandmortyapi.com/api/character/")
+      .get("https://reqres.in/api/users?page=2")
       .then(res => updateDrones(res.data.results[0]))
       .catch(err => console.log(err));
   }, []);
