@@ -2,6 +2,20 @@ import React, { useEffect, useState } from "react";
 import RenterCarousel from "components/RenterCarousel";
 import RentSearch from "components/RentSearch";
 import axios from "utils/Axios";
+import styled from "styled-components";
+import img from '../search_background.jpg'
+
+
+
+
+const Headerimage = styled.div`
+  width: 100%;
+  background-repeat: no-repeat;
+  height: 300px;
+  margin: 0 auto;
+  background-image: url(${img});
+  background-size: 100%;
+`
 
 function RenterView() {
   //set to state the drones that will be displayed through our RenterSpinner
@@ -11,7 +25,7 @@ function RenterView() {
   useEffect(() => {
     axios()
       .get("https://reqres.in/api/users?page=2")
-      .then(res => updateDrones(res.data.data[0]))
+      .then(res => updateDrones(res.data.data))
       // .then(res => updateDrones(res.data.results[0]))
       .catch(err => console.log(err));
   }, []);
@@ -19,9 +33,9 @@ function RenterView() {
   return (
     <>
       <div className="search-header">
-        
-        <RentSearch />
-
+        <Headerimage>
+          <RentSearch />
+        </Headerimage>
       </div>
 
       <div className="section header">
