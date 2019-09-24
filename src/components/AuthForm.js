@@ -1,6 +1,5 @@
-import React from "react";
-import styled from "styled-components";
-import axios from "utils/Axios";
+import React from "react"
+import styled from "styled-components"
 
 const Style = styled.form.attrs()`
   margin: 1rem;
@@ -9,33 +8,14 @@ const Style = styled.form.attrs()`
   flex-direction: column;
   align-items: center;
   justify-items: center;
-`;
+`
 export default function AuthForm(props) {
-  const { user, setUser } = props;
+  const { user, setUser, onSubmit } = props
 
-  const onChange = event => {
-    setUser({ ...user, [event.target.name]: event.target.value });
-  };
-
-  const saveToken = token => {
-    localStorage.setItem('token', token);
+  const onChange = (event) => {
+    setUser({ ...user, [event.target.name]: event.target.value })
   }
 
-  const onSubmit = event => {
-    event.preventDefault();
-    (!props.signup)? axios().post("https://reqres.in/api/login", user)
-    .then((res) => {
-        saveToken(res.data.token)
-        props.history.push('/');
-    })
-    .catch(err => console.log(err))
-    : axios().post("https://reqres.in/api/register", user)
-    .then(res => {
-        saveToken(res.data.token)
-        props.history.push('/onboarding');
-    })
-    .catch(err => console.log(err))
-  };
   return (
     <Style onSubmit={onSubmit}>
       {props.signup && (
@@ -63,5 +43,5 @@ export default function AuthForm(props) {
       />
       <button type="submit">{props.signup ? `Submit` : `Login`}</button>
     </Style>
-  );
+  )
 }
