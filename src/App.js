@@ -5,6 +5,8 @@ import NavBar from "components/NavBar"
 import Home from "pages/Home"
 import AuthView from "pages/AuthView"
 import RenterView from "pages/RenterView"
+import VendorView from "pages/VendorView"
+import SettingsView from "pages/SettingsView"
 import Footer from "components/Footer"
 
 const Style = styled.div`
@@ -36,11 +38,11 @@ function App() {
       />
       <Route path="/login" component={AuthView} />
       <PrivateRoute
-        path="/onboarding"
-        render={(props) => <Home {...props} onboarding />}
+        path="/have-drone"
+        component={VendorView}
       />
       <PrivateRoute path="/find-drone" component={RenterView} />
-
+      <PrivateRoute path="/settings" component={SettingsView} />
       <Footer />
     </Style>
   )
