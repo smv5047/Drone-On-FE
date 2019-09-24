@@ -5,7 +5,7 @@ export default function RentSearch() {
         <input
           type="text"
           name="Search"
-          placeholder="Search"
+          placeholder="Search for a Drone"
         
         />
     </div>)

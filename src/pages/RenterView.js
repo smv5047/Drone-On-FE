@@ -24,6 +24,34 @@ const Search = styled.div`
   z-index: 2;
 `
 
+const Style = styled.div`
+  .slides .slick-prev,
+  .slides .slick-next {
+    background-color:#445774;
+    color: black;
+  }
+
+  .slides {
+    position: relative;
+    text-align: center;
+  }
+
+  .slides .slick-prev,
+  .slides .slick-next {
+    position: absolute;
+    top: 30%;
+    z-index:1;
+  }
+
+  .slides .slick-prev {
+    left: 5%;
+  }
+
+  .slides .slick-next {
+    right: 5%;
+  }
+`
+
 function RenterView() {
   //set to state the drones that will be displayed through our RenterSpinner
   const [drones, updateDrones] = useState([]);
@@ -38,7 +66,7 @@ function RenterView() {
   }, []);
 
   return (
-    <>
+    <Style>
       <div className="search-header">
         <Headerimage>
           <Search>
@@ -61,7 +89,7 @@ function RenterView() {
         <h2>Pick By Cost</h2>
       </div>
       <RenterCarousel drones={drones}/>
-    </>
+    </Style>
   );
 }
 
