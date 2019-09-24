@@ -16,24 +16,24 @@ export default function RenterCarousel (props) {
     return (
         <Slider {...settings} >
             <div className="renter carouselCard">
-                <img height={100} width={100}  src={props.drones && props.drones.image} alt={props.drones && props.drones.name}/>
-                <h3>{props.drones && props.drones.name}</h3>
+                <img height={100} width={100}  src={props.drones && props.drones.avatar} alt={props.drones && props.drones.first_name}/>
+                <h3>{props.drones && props.drones.first_name}</h3>
             </div>
             <div className="renter carouselCard">
-                <img height={100} width={100}  src={props.drones && props.drones.image} alt={props.drones && props.drones.name}/>
-                <h3>{props.drones && props.drones.name}</h3>
+                <img height={100} width={100}  src={props.drones && props.drones.avatar} alt={props.drones && props.drones.first_name}/>
+                <h3>{props.drones && props.drones.first_name}</h3>
             </div>
             <div className="renter carouselCard">
-                <img height={100} width={100} src={props.drones && props.drones.image} alt={props.drones && props.drones.name}/>
-                <h3>{props.drones && props.drones.name}</h3>
+                <img height={100} width={100}  src={props.drones && props.drones.avatar} alt={props.drones && props.drones.first_name}/>
+                <h3>{props.drones && props.drones.first_name}</h3>
             </div>
             <div className="renter carouselCard">
-                <img height={100} width={100} src={props.drones && props.drones.image} alt={props.drones && props.drones.name}/>
-                <h3>{props.drones && props.drones.name}</h3>
+                <img height={100} width={100}  src={props.drones && props.drones.avatar} alt={props.drones && props.drones.first_name}/>
+                <h3>{props.drones && props.drones.first_name}</h3>
             </div>
             <div className="renter carouselCard">
-                <img height={100} width={100}src={props.drones && props.drones.image} alt={props.drones && props.drones.name}/>
-                <h3>{props.drones && props.drones.name}</h3>
+                <img height={100} width={100}  src={props.drones && props.drones.avatar} alt={props.drones && props.drones.first_name}/>
+                <h3>{props.drones && props.drones.first_name}</h3>
             </div>
         </Slider>
     );
