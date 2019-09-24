@@ -59,7 +59,7 @@ export default function AuthView(props) {
           .post("https://reqres.in/api/register", user)
           .then((res) => {
             saveToken(res.data.token)
-            props.history.push("/onboarding")
+            props.history.push("/")
           })
           .catch((err) => console.log(err))
   }

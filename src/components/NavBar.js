@@ -39,8 +39,9 @@ export default function NavBar() {
       <StyledLink to="/" exact>
         Dashboard
       </StyledLink>
-      <StyledLink to="/find-drone">Find A Drone</StyledLink>
-      <StyledLink to="/have-drone">Have A Drone</StyledLink>
+      <StyledLink to="/find-drone">I need a drone.</StyledLink>
+      <StyledLink to="/have-drone">I have a drone.</StyledLink>
+      <StyledLink to="/settings">Settings</StyledLink>
     </Style>
   );
 }
