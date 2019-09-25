@@ -49,14 +49,14 @@ export default function AuthView(props) {
     event.preventDefault()
     !props.signup
       ? axios()
-          .post("https://reqres.in/api/login", user)
+          .post("https://droneon.herokuapp.com/api/auth/login", user)
           .then((res) => {
             saveToken(res.data.token)
             props.history.push("/")
           })
           .catch((err) => console.log(err))
       : axios()
-          .post("https://reqres.in/api/register", user)
+          .post("https://droneon.herokuapp.com/api/auth/register", user)
           .then((res) => {
             saveToken(res.data.token)
             props.history.push("/")
