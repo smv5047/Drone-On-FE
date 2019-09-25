@@ -129,7 +129,7 @@ function RenterView() {
               <label></label>
               <h2>{selectedDrone.first_name}</h2>
               <h3>{selectedDrone.last_name}</h3>
-              <button>Reserve Your Drone</button>
+              
               <form>
                 <label name="Date Range">
                   <input 
@@ -143,6 +143,7 @@ function RenterView() {
                     >
                   </input>
                 </label>
+                <button>Reserve Your Drone</button>
                 <h4></h4>
               </form>
             </div>
