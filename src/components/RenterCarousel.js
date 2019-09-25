@@ -25,7 +25,7 @@ export default function RenterCarousel (props) {
     return (
         <Slider {...settings} >
             {props.drones.map(drone=> (
-            <CarouselCard>
+            <CarouselCard onClick={() =>{props.updateSelectedDrone(drone) ; props.updateZoom(true)}}>
                 <img height={100} width={100}  src={drone && drone.avatar} alt={drone && drone.first_name}/>
                 <h3>{drone && drone.first_name}</h3>
             </CarouselCard>
