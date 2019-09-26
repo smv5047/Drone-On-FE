@@ -53,6 +53,7 @@ export default function AuthView(props) {
         <StyledLink to="/signup">Signup</StyledLink>
       </Style>
       <AuthForm
+        {...props}
         user={user}
         setUser={setUser}
         signup={props.signup}
