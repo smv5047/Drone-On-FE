@@ -1,7 +1,9 @@
 import React from "react"
 import styled from "styled-components"
+import Login from "components/Login"
+import Signup from "components/Signup"
 
-const Style = styled.form.attrs()`
+const Style = styled.div.attrs()`
   margin: 1rem;
   min-height: 8rem;
   display: flex;
@@ -9,39 +11,7 @@ const Style = styled.form.attrs()`
   align-items: center;
   justify-items: center;
 `
+
 export default function AuthForm(props) {
-  const { user, setUser, onSubmit } = props
-
-  const onChange = (event) => {
-    setUser({ ...user, [event.target.name]: event.target.value })
-  }
-
-  return (
-    <Style onSubmit={onSubmit}>
-      {props.signup && (
-        <input
-          type="text"
-          name="name"
-          placeholder="Full Name"
-          value={user.name}
-          onChange={onChange}
-        />
-      )}
-      <input
-        type="email"
-        name="email"
-        placeholder="Email"
-        value={user.email}
-        onChange={onChange}
-      />
-      <input
-        type="password"
-        name="password"
-        placeholder="Password"
-        value={user.password}
-        onChange={onChange}
-      />
-      <button type="submit">{props.signup ? `Submit` : `Login`}</button>
-    </Style>
-  )
+  return <Style>{props.signup ? <Signup {...props} /> : <Login {...props} />}</Style>
 }

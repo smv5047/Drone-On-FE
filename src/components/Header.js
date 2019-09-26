@@ -20,7 +20,7 @@ export default function Dashboard() {
     <Style>
       <div>
       <h1>
-        <img src={`${process.env.PUBLIC_URL}/drone.svg`} /> Drone<span>On</span>
+        <img src={`${process.env.PUBLIC_URL}/drone.svg`} alt="text"/> Drone<span>On</span>
       </h1>
 
       </div>
