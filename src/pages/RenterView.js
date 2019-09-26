@@ -96,6 +96,8 @@ function RenterView() {
   const [endDate, setEndDate] = useState(null);
   
   //Use useEffect and axios below to pull certain drones from our backend
+
+  //Former Test Data
   useEffect(() => {
     axios()
       .get("https://reqres.in/api/users?page=2")
