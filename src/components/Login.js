@@ -52,6 +52,8 @@ export default withFormik({
       .post("https://droneon.herokuapp.com/api/auth/login", values)
       .then((res) => {
         saveToken(res.data)
+        resetForm()
+        setSubmitting(false)
         props.history.push("/")
       })
       .catch((err) => console.log(err))
