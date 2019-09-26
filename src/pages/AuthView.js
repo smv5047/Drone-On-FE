@@ -2,7 +2,6 @@ import React, { useState } from "react"
 import { NavLink } from "react-router-dom"
 import styled from "styled-components"
 import AuthForm from "components/AuthForm"
-import axios from "utils/Axios"
 
 
 const StyledView = styled.div`
@@ -41,27 +40,10 @@ const StyledLink = styled(NavLink).attrs({
 `
 
 export default function AuthView(props) {
-  const [user, setUser] = useState({ name: "", email: "", password: "" })
-  const saveToken = (token) => {
-    localStorage.setItem("token", token)
-  }
-  const onSubmit = (event) => {
-    event.preventDefault()
-    !props.signup
-      ? axios()
-          .post("https://droneon.herokuapp.com/api/auth/login", user)
-          .then((res) => {
-            saveToken(res.data.token)
-            props.history.push("/")
-          })
-          .catch((err) => console.log(err))
-      : axios()
-          .post("https://droneon.herokuapp.com/api/auth/register", user)
-          .then((res) => {
-            saveToken(res.data.token)
-            props.history.push("/")
-          })
-          .catch((err) => console.log(err))
+  const [user, setUser] = useState({ email: "", password: "" })
+  const saveToken = (data) => {
+    localStorage.setItem("token", data.token);
+    localStorage.setItem("id", data.id)
   }
 
   return (
@@ -74,7 +56,7 @@ export default function AuthView(props) {
         user={user}
         setUser={setUser}
         signup={props.signup}
-        onSubmit={onSubmit}
+        saveToken={saveToken}
       />
     </StyledView>
   )
