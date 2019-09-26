@@ -1,5 +1,8 @@
 import React from "react"
 import styled from "styled-components"
+import { withFormik, Form, Field } from "formik"
+import * as yup from "yup"
+
 
 const Style = styled.form.attrs()`
   margin: 1rem;
@@ -21,7 +24,7 @@ export default function AuthForm(props) {
       {props.signup && (
         <input
           type="text"
-          name="name"
+          name="full_name"
           placeholder="Full Name"
           value={user.name}
           onChange={onChange}
