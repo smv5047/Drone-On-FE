@@ -1,11 +1,12 @@
 import React from "react"
 
-export default function RentedDrones({ rentedDrones }) {
+export default function RentedDrones(props) {
+  const { rentedDrones, onClick } = props
   return (
     <div>
-      <h1>Drones I have rented</h1>
+      <h1>Drones I've Rented</h1>
       {rentedDrones &&
-        rentedDrones.map((drone) => <div key={drone.id}>{drone.Name}</div>)}
+        rentedDrones.map((drone) => <div onClick={()=>onClick(drone)} key={drone.id}>{drone.Name}</div>)}
     </div>
   )
 }

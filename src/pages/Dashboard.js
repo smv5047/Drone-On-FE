@@ -7,23 +7,33 @@ import axios from "utils/Axios"
 export default function Dashboard() {
   const [myDrones, setMyDrones] = useState([])
   const [rentedDrones, setRentedDrones] = useState([])
+  const [selectedDrone, setSelectedDrone]=useState()
 
   useEffect(() => {
     axios()
-    .get("/api/drones.json")
-      .then(res => {
+      .get("/api/drones.json")
+      .then((res) => {
         console.log(res.data.data)
         setMyDrones(res.data.data)
         setRentedDrones(res.data.data)
       })
   }, [])
 
-  console.log('dash',myDrones)
+  const onClick = (drone) => {
+    setSelectedDrone(drone)
+  }
+
+  const closeModal= ()=>{
+      setSelectedDrone()
+  }
+
+  console.log("dash", myDrones)
 
   return (
     <div>
-      <MyDrones myDrones={myDrones} />
-      <RentedDrones rentedDrones={rentedDrones} />
+      <MyDrones onClick={onClick} myDrones={myDrones} />
+      <RentedDrones onClick={onClick} rentedDrones={rentedDrones} />
+      {selectedDrone&& <div>Selected drone: {selectedDrone.Name}  <span onClick={closeModal}>X</span></div>}
     </div>
   )
 }
