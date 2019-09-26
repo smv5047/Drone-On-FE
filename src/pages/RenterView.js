@@ -36,7 +36,18 @@ const Zoomedimage = styled.div`
         width: 100%;
       }
     }
-
+    form {
+      color: #172233;
+      h2, h3, h4{
+        color: #172233;
+      }
+      label {
+        color: #172233;
+      }
+      input {
+        color: #172233;
+      }
+    }
   }
 `
 const Headerimage = styled.div`
@@ -80,6 +91,10 @@ function RenterView() {
   const [drones, updateDrones] = useState([])
   const [zoom, updateZoom] = useState(false)
   const [selectedDrone, updateSelectedDrone] = useState()
+  const [cost, setCost] = useState(0)
+  const [startDate, setStartDate] = useState(null);
+  const [endDate, setEndDate] = useState(null);
+  
   //Use useEffect and axios below to pull certain drones from our backend
   useEffect(() => {
     axios()
@@ -89,12 +104,47 @@ function RenterView() {
       .catch((err) => console.log(err))
   }, [])
 
-  function handleClick(e) {
-    console.log(e.target)
-    updateSelectedDrone(e.target)
-    updateZoom(true)
-    console.log(selectedDrone)
+  
+
+
+  function handleChange(e) {
+    console.log(e)
+    setCost(e.target.cost)
+    
+    if (endDate === null){
+    setStartDate(e)
+    } else {
+      setEndDate(e)
+    }
+
   }
+
+  // Function to Handle Submission and Input into the Drone Form
+  function handleSubmit(e) {
+    e.preventDefault();
+    console.log(e)
+    // if (endDate.parse() < startDate.parse()){
+    //   alert("Please pick a date in the future")
+    // } else {
+    alert("Thank you for your purchase!")
+    updateZoom(false)
+    // }
+  }
+
+
+  /*Setting minimum date for reserving on calendar to current day */
+  let today = new Date();
+  let dd = today.getDate();
+  let mm = today.getMonth()+1; //January is 0!
+  let yyyy = today.getFullYear();
+   if(dd<10){
+          dd='0'+dd
+      } 
+      if(mm<10){
+          mm='0'+mm
+      } 
+  today = yyyy+'-'+mm+'-'+dd;
+
 
   return (
     <Style>
@@ -127,24 +177,37 @@ function RenterView() {
             </div>
             <div>
               <label></label>
-              <h2>{selectedDrone.first_name}</h2>
-              <h3>{selectedDrone.last_name}</h3>
+              <h2>Drone: {selectedDrone.first_name}</h2>
+              <h3>Cost Per Day ${selectedDrone.last_name}</h3>
               
-              <form>
-                <label name="Date Range">
+              <form onSubmit={e => handleSubmit(e)}>
+                <label name="DateRange">
+                  Which Dates Would You Like this Drone
+                  <br/>
+                  <br/> 
                   <input 
                     type="date"
-                    id="startdate"
+                    min={today}
+                    id="startDate"
+                    selected={startDate}
+                    placeholder="Start Date"
+                    onChange={e => handleChange(e)}
                     >
                   </input>
                   <input 
                     type="date"
-                    id="enddate"
+                    id="endDate"
+                    min={today}
+                    selected={endDate}
+                    placeholder="Return Date"
+                    onChange={e => handleChange(e)}
                     >
                   </input>
                 </label>
-                <button>Reserve Your Drone</button>
-                <h4></h4>
+                <br/>
+                <br/>
+                <button type="submit">Reserve Your Drone</button>
+                <h4>Total Cost ${'00.00'}</h4>
               </form>
             </div>
           </div>
