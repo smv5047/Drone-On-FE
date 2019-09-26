@@ -5,18 +5,25 @@ import RentedDrones from "components/RentedDrones"
 import axios from "utils/Axios"
 
 export default function Dashboard() {
-const [myDrones, setMyDrones] = useState()
-const [rentedDrones, setRentedDrones]= useState()
+  const [myDrones, setMyDrones] = useState([])
+  const [rentedDrones, setRentedDrones] = useState([])
 
-useEffect(()=>{
-    setMyDrones()
-    setRentedDrones()
-},[])
+  useEffect(() => {
+    axios()
+    .get("/api/drones.json")
+      .then(res => {
+        console.log(res.data.data)
+        setMyDrones(res.data.data)
+        setRentedDrones(res.data.data)
+      })
+  }, [])
+
+  console.log('dash',myDrones)
 
   return (
     <div>
-      <MyDrones myDrones={myDrones}/>
-      <RentedDrones rentedDrones={rentedDrones}/>
+      <MyDrones myDrones={myDrones} />
+      <RentedDrones rentedDrones={rentedDrones} />
     </div>
   )
 }
