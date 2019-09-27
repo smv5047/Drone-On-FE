@@ -1,8 +1,8 @@
 # Drone On - SPA - Lambda School Build Week
 ## Project Description
 
-Drone On is a Single Page React Base Application that creates a two-sided marketplace between Drone Renters and Vendors. Drone On connects Renters and 
-Vendors across the world enabling Vendors to monetize unused inventory and Renters to experience the joy of flying a drone.
+Drone On is a Single Page React Base Application that creates a two-sided marketplace between those who have a Drone and those who want to rent a Drone. Drone On connects Drone Renters and 
+Drone Owners across the world enabling Owners to monetize unused inventory and Renters to experience the joy of flying a drone.
 
 Drone On, Drone On, Drone Until Your Drone Comes True!
 
@@ -13,34 +13,37 @@ https://drone-on.netlify.com
 
 
 ## To Test
+- `git clone https://github.com/BuildUseMyTechStuff/Front-end.git`
+- `cd Front-end`
 - `npm i && npm start`
-- Login using "email": "eve.holt@reqres.in" and "password": "cityslicka"
 
+## Languages/Framework Used
 
-## Languages & Libraries Used
+- HTML
+- CSS
+- Javascript & JSX
+- React
 
--HTML
--CSS
--JSX
--React
 
 
 ## Dependencies
 
--Axios
--React-Router
--React-Slick (Including Slick-Carousel)
--Styled Components
--Yup
+- Axios
+- React-Router
+- React-Slick (Including Slick-Carousel)
+- Styled Components
+- Formik
+- Yup
 
 
 ## Features
 
 - Sign-in/Sign-up
-- Seperate Renter and Vendor Views
-- Dashboard to Track Currently Rented Drones
-- Dashboard
-- Dashboard
+- Separate Renter and Vendor Views
+- Dashboard to Track 
+ - Drone(s) currently rented by user
+ - Drone(s) currently for rent by user
+- Settings page to update user information (name, email, password)
 
 
 ## Contributions
