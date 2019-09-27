@@ -112,7 +112,6 @@ function RenterView() {
   }, [])
   
  
- 
   function handleChange(e) {
     console.log(e)
     setCost(e.target.cost)
@@ -123,6 +122,10 @@ function RenterView() {
       setEndDate(e)
     }
  
+  }
+  /* Function to Close Out Zoomed in Drone */
+  const closeZoom= ()=>{
+    updateZoom(false)
   }
  
   // Function to Handle Submission and Input into the Drone Form
@@ -179,6 +182,11 @@ return (
         <Zoomedimage>
           <div>
             <div>
+              <span onClick={closeZoom}>X</span>
+              <br/>
+              <br/>
+              <br/>
+              <br/>
               <img src={selectedDrone.Link} alt={selectedDrone.first_name} />
             </div>
             <div>
