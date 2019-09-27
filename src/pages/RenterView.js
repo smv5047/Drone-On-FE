@@ -95,18 +95,23 @@ function RenterView() {
   const [startDate, setStartDate] = useState(null);
   const [endDate, setEndDate] = useState(null);
   
-  //Use useEffect and axios below to pull certain drones from our backend
+  // Use useEffect and axios below to pull certain drones from our backend
+  // useEffect(() => {
+  //   axios()
+  //     .get("https://reqres.in/api/users?page=2")
+  //     .then((res) => updateDrones(res.data.data))
+  //     .catch((err) => console.log(err))
+  // }, [])
+ 
+ 
   useEffect(() => {
     axios()
-      .get("https://reqres.in/api/users?page=2")
+      .get("/api/drones.json")
       .then((res) => updateDrones(res.data.data))
-      // .then(res => updateDrones(res.data.results[0]))
       .catch((err) => console.log(err))
   }, [])
-
   
-
-
+ 
   function handleChange(e) {
     console.log(e)
     setCost(e.target.cost)
@@ -116,9 +121,13 @@ function RenterView() {
     } else {
       setEndDate(e)
     }
-
+ 
   }
-
+  /* Function to Close Out Zoomed in Drone */
+  const closeZoom= ()=>{
+    updateZoom(false)
+  }
+ 
   // Function to Handle Submission and Input into the Drone Form
   function handleSubmit(e) {
     e.preventDefault();
@@ -128,43 +137,43 @@ function RenterView() {
     // } else {
     alert("Thank you for your purchase!")
     updateZoom(false)
-    // }
-  }
+// }
+}
+ 
+ 
+/*Setting minimum date for reserving on calendar to current day */
+let today = new Date();
+let dd = today.getDate();
+let mm = today.getMonth()+1; //January is 0!
+let yyyy = today.getFullYear();
+ if(dd<10){
+        dd='0'+dd
+    } 
+    if(mm<10){
+        mm='0'+mm
+    } 
+today = yyyy+'-'+mm+'-'+dd;
 
 
-  /*Setting minimum date for reserving on calendar to current day */
-  let today = new Date();
-  let dd = today.getDate();
-  let mm = today.getMonth()+1; //January is 0!
-  let yyyy = today.getFullYear();
-   if(dd<10){
-          dd='0'+dd
-      } 
-      if(mm<10){
-          mm='0'+mm
-      } 
-  today = yyyy+'-'+mm+'-'+dd;
-
-
-  return (
-    <Style>
-      <div className="search-header">
-        <Headerimage>
-          <Search>
-            <RentSearch />
-          </Search>
-        </Headerimage>
-      </div>
-      <div className="section header">
-        <h2>Pick By Purpose</h2>
-      </div>
-      <RenterCarousel updateZoom={updateZoom} updateSelectedDrone={updateSelectedDrone} drones={drones} />
-      <div className="section header">
-        <h2>Pick By Experience Level</h2>
-      </div>
-      <RenterCarousel updateZoom={updateZoom} updateSelectedDrone={updateSelectedDrone} drones={drones} />
-      <div className="section header">
-        <h2>Pick By Cost</h2>
+return (
+  <Style>
+    <div className="search-header">
+      <Headerimage>
+        <Search>
+          <RentSearch />
+        </Search>
+      </Headerimage>
+    </div>
+    <div className="section header">
+      <h2>Pick By Purpose</h2>
+    </div>
+    <RenterCarousel updateZoom={updateZoom} updateSelectedDrone={updateSelectedDrone} drones={drones} />
+    <div className="section header">
+      <h2>Pick By Experience Level</h2>
+    </div>
+    <RenterCarousel updateZoom={updateZoom} updateSelectedDrone={updateSelectedDrone} drones={drones} />
+    <div className="section header">
+      <h2>Pick By Cost</h2>
       </div>
       <div>
         <RenterCarousel updateZoom={updateZoom} updateSelectedDrone={updateSelectedDrone} drones={drones} />
@@ -173,12 +182,17 @@ function RenterView() {
         <Zoomedimage>
           <div>
             <div>
-              <img src={selectedDrone.avatar} alt={selectedDrone.first_name} />
+              <span onClick={closeZoom}>X</span>
+              <br/>
+              <br/>
+              <br/>
+              <br/>
+              <img src={selectedDrone.Link} alt={selectedDrone.first_name} />
             </div>
             <div>
               <label></label>
-              <h2>Drone: {selectedDrone.first_name}</h2>
-              <h3>Cost Per Day ${selectedDrone.last_name}</h3>
+              <h2>Drone: {selectedDrone.Name}</h2>
+              <h3>Cost Per Day ${selectedDrone.Cost}</h3>
               
               <form onSubmit={e => handleSubmit(e)}>
                 <label name="DateRange">
@@ -203,10 +217,10 @@ function RenterView() {
                     onChange={e => handleChange(e)}
                     >
                   </input>
-                </label>
+                  </label>
                 <br/>
                 <br/>
-                <button type="submit">Reserve Your Drone</button>
+                <button type="submit">Reserve the {selectedDrone.Name}</button>
                 <h4>Total Cost ${'00.00'}</h4>
               </form>
             </div>
