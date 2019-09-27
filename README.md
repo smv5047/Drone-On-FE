@@ -13,6 +13,7 @@ https://drone-on.netlify.com
 
 
 ## To Test
+- First ensure that the backend api is up and running here: https://droneon.herokuapp.com
 - `git clone https://github.com/BuildUseMyTechStuff/Front-end.git`
 - `cd Front-end`
 - `npm i && npm start`
