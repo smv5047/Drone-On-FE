@@ -9,6 +9,13 @@ const Style = styled.nav`
   align-items: center;
   width: 100%;
 
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-items: center;
+  }
+
   a {
     padding: 1rem;
     width: 100%;
