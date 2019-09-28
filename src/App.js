@@ -1,4 +1,4 @@
-import React from "react"
+import React, { createContext, useState } from "react"
 import { Route, Redirect } from "react-router-dom"
 import styled from "styled-components"
 import NavBar from "components/NavBar"
@@ -19,6 +19,8 @@ const Style = styled.div`
   }
 `
 
+export const CurrentUser = createContext()
+
 const PrivateRoute = ({ component: Component, ...rest }) => (
   <Route
     {...rest}
@@ -33,22 +35,29 @@ const PrivateRoute = ({ component: Component, ...rest }) => (
 )
 
 function App() {
+
+  const [authUser, setAuthUser] = useState({
+    full_name: "Me",
+    email: "someone@email.com"
+  })
   return (
     <Style className="App">
-      <Header />
-      <NavBar />
-      <div className="container">
-      <PrivateRoute path="/" exact component={Dashboard} />
-      <Route
-        path="/signup"
-        render={(props) => <AuthView {...props} signup />}
-      />
-      <Route path="/login" component={AuthView} />
-      <PrivateRoute path="/have-drone" component={VendorView} />
-      <PrivateRoute path="/find-drone" component={RenterView} />
-      <PrivateRoute path="/settings" component={SettingsView} />
-      </div>
-      <Footer />
+      <CurrentUser.Provider value={{ authUser, setAuthUser }}>
+        <Header />
+        <NavBar />
+        <div className="container">
+          <PrivateRoute path="/" exact component={Dashboard} />
+          <Route
+            path="/signup"
+            render={(props) => <AuthView {...props} signup />}
+          />
+          <Route path="/login" component={AuthView} />
+          <PrivateRoute path="/have-drone" component={VendorView} />
+          <PrivateRoute path="/find-drone" component={RenterView} />
+          <PrivateRoute path="/settings" component={SettingsView} />
+        </div>
+        <Footer />
+      </CurrentUser.Provider>
     </Style>
   )
 }

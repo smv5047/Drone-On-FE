@@ -7,10 +7,13 @@ import axios from "utils/Axios"
 const Style = styled.div.attrs()`
   margin: 1rem;
   min-height: 8rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-items: center;
+  padding: 1rem;
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-items: center;
+  }
 `
 
 function EditUserForm(props) {
@@ -22,7 +25,6 @@ function EditUserForm(props) {
         <Field type="text" name="full_name" placeholder="Full Name" />
         <Field type="email" name="email" placeholder="Email" />
         <Field type="password" name="password" placeholder="Password" />
-        <br />
         <button type="submit" disabled={isSubmitting}>
           Update
         </button>

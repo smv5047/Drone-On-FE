@@ -1,4 +1,10 @@
 import React from "react"
+import styled from "styled-components"
+
+const Img = styled.img`
+  width: 100px;
+  max-height: 100px;
+`
 
 export default function RentedDrones(props) {
   const { rentedDrones, onClick } = props
@@ -6,7 +12,12 @@ export default function RentedDrones(props) {
     <div>
       <h1>Drones I've Rented</h1>
       {rentedDrones &&
-        rentedDrones.map((drone) => <div onClick={()=>onClick(drone)} key={drone.id}>{drone.Name}</div>)}
+        rentedDrones.map((drone) => (
+          <div onClick={() => onClick(drone)} key={drone.id}>
+            <Img src={drone.Link} alt={drone.first_name} />
+            {drone.Name}
+          </div>
+        ))}
     </div>
   )
 }

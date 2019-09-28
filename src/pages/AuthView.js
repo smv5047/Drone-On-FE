@@ -43,7 +43,7 @@ export default function AuthView(props) {
   const [user, setUser] = useState({ email: "", password: "" })
   const saveToken = (data) => {
     localStorage.setItem("token", data.token);
-    localStorage.setItem("id", data.id)
+    localStorage.setItem("email", data.email)
   }
 
   return (
