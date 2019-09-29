@@ -12,10 +12,9 @@ const Style = styled.div.attrs()`
   align-items: center;
   justify-items: center;
 `
-function DroneForm() {
+function EditDrone(props) {
   return (
     <Style>
-
       <Form>
         <Field type="text" name="name" placeholder="Drone Name" />
         <br />
@@ -36,7 +35,7 @@ function DroneForm() {
           placeholder="Rental Cost"
         />
         <br />
-        <button type="submit">Add your drone</button>
+        <button type="submit">Submit</button>
       </Form>
     </Style>
   )
@@ -64,13 +63,12 @@ export default withFormik({
       .required("Please provide how much it cost to rent per day")
   }),
   handleSubmit(values, { props, setStatus, resetForm, setSubmitting }) {
-    const { saveToken } = props
-    axios()
-      .post("https://droneon.herokuapp.com/api/drones", values)
-      .then((res) => {
-        saveToken(res.data)
-        props.history.push("/")
-      })
-      .catch((err) => console.log(err))
-  }
-})(DroneForm)
+      axios()
+        .put(`https://droneon.herokuapp.com/api/drones/${props.id}`)
+        .then((res) => {
+          console.log(res.data)
+        })
+        .catch((err) => console.log(err))
+    }
+
+})(EditDrone)

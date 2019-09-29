@@ -1,13 +1,20 @@
 import React, { useState } from "react"
 import styled from "styled-components"
 import DroneForm from "components/DroneForm"
-import axios from "utils/Axios"
-
 
 const Style = styled.nav`
   display: flex;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
   width: 100%;
+
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-items: center;
+  }
 
   a {
     padding: 1rem;
@@ -17,25 +24,14 @@ const Style = styled.nav`
 `
 
 export default function VendorView(props) {
-  const [vendorDrone, setVendorDrone] = useState({ name: "", model: "", brand: "", purpose: "", experience: "", cost: "" })
-
-  const onSubmit = (event) => {
-    event.preventDefault()
-    axios()
-          .post("https://reqres.in/api/users/", vendorDrone)
-          .then((res) => {
-            props.history.push("/")
-          })
-          .catch((err) => console.log(err))
-  }
-
   return (
     <Style>
-      <DroneForm
-        vendorDrone={vendorDrone}
-        setVendorDrone={setVendorDrone}
-        onSubmit={onSubmit}
-      />
+      <h2>List your Drone</h2>
+      <p>
+        You have a drone you want to rent out. That's GREAT! Please provide the
+        following information about your drone.
+      </p>
+      <DroneForm />
     </Style>
   )
 }

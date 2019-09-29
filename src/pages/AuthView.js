@@ -7,8 +7,10 @@ import AuthForm from "components/AuthForm"
 const StyledView = styled.div`
   max-width: 400px;
   margin: 1rem auto;
-  border: 1px black solid;
-  border-radius: 10px;
+  form{
+    display:flex;
+    flex-direction:column;
+  }
 `
 
 const Style = styled.nav`
@@ -27,13 +29,7 @@ const StyledLink = styled(NavLink).attrs({
   activeClassName: "active"
 })`
   background-color: lightgray;
-  border-radius: 10px 10px 0 0;
-  &:first-of-type {
-    border-radius: 10px 0 0 0;
-  }
-  &:last-of-type {
-    border-radius: 0 10px 0 0;
-  }
+
   &.active {
     background-color: white;
   }
@@ -43,7 +39,7 @@ export default function AuthView(props) {
   const [user, setUser] = useState({ email: "", password: "" })
   const saveToken = (data) => {
     localStorage.setItem("token", data.token);
-    localStorage.setItem("id", data.id)
+    localStorage.setItem("email", data.email)
   }
 
   return (
