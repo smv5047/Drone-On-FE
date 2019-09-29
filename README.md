@@ -1,7 +1,7 @@
 # Drone On - SPA - Lambda School Build Week
 ## Project Description
 
-Drone On is a Single Page React Base Application that creates a two-sided marketplace between those who have a Drone and those who want to rent a Drone. Drone On connects Drone Renters and 
+Drone On is a Single Page React base application that creates a two-sided drone. Drone On connects Drone Renters and 
 Drone Owners across the world enabling Owners to monetize unused inventory and Renters to experience the joy of flying a drone.
 
 Drone On, Drone On, Drone Until Your Drone Comes True!
@@ -49,7 +49,7 @@ https://drone-on.netlify.com
 
 ## Contributions
 
--Please feel free to submit a pull request if you have a cool new feature or a bug fix that you'd liek to contribute
+Please feel free to submit a pull request if you have a cool new feature or a bug fix that you'd liek to contribute
 
 
 ## Contributors
