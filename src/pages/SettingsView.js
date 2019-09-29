@@ -2,8 +2,6 @@ import React, { useContext, useState } from "react"
 import styled from 'styled-components'
 import EditUserForm from "components/EditUserForm"
 import { CurrentUser } from "../App"
-import {Route} from "react-router-dom"
-import AuthView from "pages/AuthView"
 
 const Style = styled.div`
   display: flex;

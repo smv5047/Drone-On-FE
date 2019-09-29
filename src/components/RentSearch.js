@@ -1,12 +1,21 @@
 import React from 'react'
 
+
+
+
 export default function RentSearch() {
-    return (<div>
+    return (
+    <div>
         <input
           type="text"
           name="Search"
           placeholder="Search for a Drone"
         
         />
-    </div>)
+        <div>
+      <button type="submit">Search</button>
+      </div>
+    </div>
+    
+    )
 }

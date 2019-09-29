@@ -62,6 +62,11 @@ const Search = styled.div`
   padding-top: 200px;
   padding-left: 42.5%;
   z-index: 2;
+  button {
+    position: absolute;
+    left: 48.5%;
+    margin-top: 5px;
+  }
 `
 const Style = styled.div`
   .slides .slick-prev,
