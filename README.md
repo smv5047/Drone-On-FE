@@ -60,4 +60,4 @@ Steven Vandenburg - @smv5047
 
 ## Trello Board
 
-'https://trello.com/b/MY9LDHG7/use-my-tech-stuff'
+https://trello.com/b/MY9LDHG7/use-my-tech-stuff
