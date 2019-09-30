@@ -8,6 +8,10 @@ import styled from "styled-components";
 const CarouselCard = styled.div`
     img{
     margin: 0 auto;
+    border-radius: 5px;
+     &:hover{
+         box-shadow: 5px 5px 10px #172233;
+     }
     }
 `
 
@@ -15,7 +19,6 @@ export default function RenterCarousel (props) {
     console.log(props.drones)
     const settings = {
         dots: true,
-        
         speed: 400,
         slidesToShow: 3,
         slidesToScroll: 3,
