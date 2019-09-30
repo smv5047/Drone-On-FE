@@ -16,6 +16,7 @@ const Zoomedimage = styled.div`
   overflow: auto;
   background-color: #000000;
   background-color: rgba(0, 0, 0, 0.4);
+  
   & > div {
     background-color: #fefefe;
     margin: auto;
@@ -27,6 +28,11 @@ const Zoomedimage = styled.div`
     position: absolute;
     top: 10px;
     left: 10%;
+    span {
+      position: absolute;
+      top: 10%;
+      font-weight: bold;
+    }
     & > div {
       background-color: #fefefe;
       margin: auto;
@@ -34,6 +40,7 @@ const Zoomedimage = styled.div`
       &>img {
         height: 100%;
         width: 100%;
+        border-radius: 10px;
       }
     }
     form {
@@ -69,10 +76,16 @@ const Search = styled.div`
   }
 `
 const Style = styled.div`
+  div>h2{
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  }
   .slides .slick-prev,
   .slides .slick-next {
-    background-color: #445774;
-    color: black;
+    background-color: #172233;
+    color: #172233;
+    border-radius: 20px;
   }
   .slides {
     position: relative;
@@ -116,7 +129,14 @@ function RenterView() {
       .catch((err) => console.log(err))
   }, [])
   
- 
+  //To Pull from our BE once completed
+  // useEffect(() => {
+  //   axios()
+  //     .get("https://droneon.herokuapp.com/api/users/drones")
+  //     .then((res) => console.log(res))
+  //     .catch((err) => console.log(err))
+  // }, [])
+
   function handleChange(e) {
     console.log(e)
     setCost(e.target.cost)
@@ -201,7 +221,7 @@ return (
               
               <form onSubmit={e => handleSubmit(e)}>
                 <label name="DateRange">
-                  Which Dates Would You Like this Drone
+                  Which Dates Would You Like this Drone?
                   <br/>
                   <br/> 
                   <input 
