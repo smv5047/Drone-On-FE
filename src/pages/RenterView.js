@@ -114,28 +114,12 @@ function RenterView() {
   const [endDate, setEndDate] = useState(null);
   
   // Use useEffect and axios below to pull certain drones from our backend
-  // useEffect(() => {
-  //   axios()
-  //     .get("https://reqres.in/api/users?page=2")
-  //     .then((res) => updateDrones(res.data.data))
-  //     .catch((err) => console.log(err))
-  // }, [])
- 
- 
   useEffect(() => {
     axios()
-      .get("/api/drones.json")
-      .then((res) => updateDrones(res.data.data))
+      .get("https://droneon.herokuapp.com/api/users/drones")
+      .then((res) => updateDrones(res.data))
       .catch((err) => console.log(err))
   }, [])
-  
-  //To Pull from our BE once completed
-  // useEffect(() => {
-  //   axios()
-  //     .get("https://droneon.herokuapp.com/api/users/drones")
-  //     .then((res) => console.log(res))
-  //     .catch((err) => console.log(err))
-  // }, [])
 
   function handleChange(e) {
     console.log(e)
