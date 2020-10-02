@@ -1,7 +1,7 @@
 # Drone On - SPA - Lambda School Build Week
 ## Project Description
 
-Drone On is a Single Page React base application that creates a two-sided drone. Drone On connects Drone Renters and 
+Drone On is a Single Page React base application that creates a two-sided drone marketplace. Drone On connects Drone Renters and 
 Drone Owners across the world enabling Owners to monetize unused inventory and Renters to experience the joy of flying a drone.
 
 Drone On, Drone On, Drone Until Your Drone Comes True!
